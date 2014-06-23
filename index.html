@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>City Point</title>
   <link rel="stylesheet" href="css/styles.css">
+<script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-52186285-1', 'citypoint.com');
+          ga('send', 'pageview');
+</script>
 </head>
 <body>
 
@@ -44,9 +53,8 @@
   <div class="jumbotron">
     <div class="container">
       <h1>CityPoint</h1>
-      <p>Your information turist point based in the user experience</p>
-      <p><a class="btn btn-primary btn-lg" role="button">Get CityPoint</a></p>
-      <p><a class="btn btn-secondary btn-lg" role="link">Learn more...</a></p>
+      <p class="jumbotron2">Your information turist point based in the user experience</p>
+      <p><a class="btn btn-primary btn-lg" id="linkGetCityPoint" role="button">Get CityPoint</a></p>
     </div>
   </div>
 
@@ -79,12 +87,43 @@
     <hr>
 
     <footer>
-      <p>© Langproving 2014</p>
+      <p>© CityPoint 2014</p>
+      <div align="center"><a id="linkLearnMore" href="#"><img class="img-rounded" src="../img/LearnMore.png" alt="Learn More"></a></div>
     </footer>
   </div> <!-- /container -->
 
 
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script>
+// Utility function to setup events when clicking on DOM elements.
+function trackClickOnElement($link, category, action, label) {
+    $link.on('click', function() {
+        ga('send', 'event', category, action, label);
+        return true;
+    });
+}
+
+// Buttons that are going to trigger the Analytics event.
+var $linkGetCityPoint = $('#linkGetCityPoint'),
+    $linkLearnMore = $('#linkLearnMore'),
+
+// Para el boton de CityPoint. Strings for the event description.
+var category = 'CityPoint',
+    mainAction = 'Download App',
+    secondaryAction = 'Link Learn More',
+    mainLabel = mainAction,
+    secondaryLabel = secondaryAction;
+
+// We call the utility function to setup the tracking.
+trackClickOnElement($linkGetCityPoint, 
+                    category, 
+                    mainAction, 
+                    mainLabel);
+trackClickOnElement($linkLearnMore, 
+                    category, 
+                    secondaryAction, 
+                    secondaryLabel);
+</script>
 </body>
 </html> 
