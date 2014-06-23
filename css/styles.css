@@ -5809,6 +5809,9 @@ body {
     background-size: cover;
   }
 }
+.cambio {
+  padding: 20px 40px;
+}
 .marketing-box {
   padding: 10px;
   border-radius: 5px;
